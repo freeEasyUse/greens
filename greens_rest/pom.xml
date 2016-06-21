@@ -7,9 +7,7 @@
     <artifactId>greens</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>org.gl</groupId>
   <artifactId>greens_rest</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>greens_rest</name>
   <url>http://maven.apache.org</url>
   <properties>
