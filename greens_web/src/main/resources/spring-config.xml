@@ -9,5 +9,5 @@
     <!-- <context:property-placeholder file-encoding="utf-8" 
                                    location="classpath:app.properties,classpath:dubbo.properties"/> -->
     <context:annotation-config />
-    <context:component-scan base-package="org.gl.greens" />  
+    <context:component-scan base-package="org.greens" />  
 </beans>
