@@ -9,5 +9,8 @@
     <!-- <context:property-placeholder file-encoding="utf-8" 
                                    location="classpath:app.properties,classpath:dubbo.properties"/> -->
     <context:annotation-config />
-    <context:component-scan base-package="org.greens" />  
+    <context:component-scan base-package="org.greens" />
+    
+    <!-- 引入dubbo -->
+    <import resource="spring-dubbo-client.xml"/>
 </beans>

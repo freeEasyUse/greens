@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.gl</groupId>
@@ -22,13 +23,13 @@
 		<taglibs-version>1.1.2</taglibs-version>
 		<jsp-version>2.1</jsp-version>
 
-		<!-- 主框�?-->
+		<!-- 主框�? -->
 		<spring-version>3.2.3.RELEASE</spring-version>
 		<mybatis-version>3.2.1</mybatis-version>
 		<mybatis-spring-version>1.2.0</mybatis-spring-version>
 		<mybatis-paginator-version>1.2.15</mybatis-paginator-version>
 
-		<!-- 跨系统交�?-->
+		<!-- 跨系统交�? -->
 		<activeMQ-version>5.8.0</activeMQ-version>
 		<druid-version>1.0.13</druid-version>
 		<dubbo-version>2.5.3</dubbo-version>
@@ -36,7 +37,7 @@
 		<zookeeper-version>3.4.6</zookeeper-version>
 		<zkclient-version>0.1</zkclient-version>
 
-		<!-- 数据�?-->
+		<!-- 数据�? -->
 		<mysql-version>5.1.26</mysql-version>
 		<oracle-version>10.2.0.5</oracle-version>
 		<redis-client-version>2.6.2</redis-client-version>
@@ -191,7 +192,7 @@
 				<version>${mybatis-paginator-version}</version>
 			</dependency>
 
-			<!-- 跨系统交�?-->
+			<!-- 跨系统交�? -->
 			<dependency>
 				<groupId>org.apache.activemq</groupId>
 				<artifactId>activemq-all</artifactId>
@@ -261,7 +262,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<!-- 数据�?-->
+			<!-- 数据�? -->
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
@@ -375,16 +376,56 @@
 				<version>${commons-codec-version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-dbcp2</artifactId>
+				<version>${commons-dbcp2-version}</version>
+			</dependency>
+			<dependency>
 				<groupId>javax.annotation</groupId>
 				<artifactId>javax.annotation-api</artifactId>
 				<version>${annotation-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-mongodb</artifactId>
+				<version>1.6.0.RELEASE</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>spring-tx</artifactId>
+						<groupId>org.springframework</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>spring-beans</artifactId>
+						<groupId>org.springframework</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>spring-expression</artifactId>
+						<groupId>org.springframework</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>spring-core</artifactId>
+						<groupId>org.springframework</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-commons</artifactId>
+				<version>1.9.1.RELEASE</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mongodb</groupId>
+				<artifactId>mongo-java-driver</artifactId>
+				<version>2.12.4</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<modules>
 		<module>greens_rest</module>
 		<module>greens_web</module>
-    <module>greens_api</module>
-    <module>greens_service</module>
-  </modules>
+		<module>greens_api</module>
+		<module>greens_service</module>
+	</modules>
 </project>

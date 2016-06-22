@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="false"
+	xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+
+	<appender name="logfile" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.base}/logs/mba.log" />
+		<param name="ImmediateFlush" value="true" />
+		<param name="MaxFileSize" value="200MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+
+	<appender name="warn" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.base}/logs/mba_warn.log" />
+		<param name="ImmediateFlush" value="true" />
+		<param name="MaxFileSize" value="50MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="WARN" />
+			<param name="LevelMin" value="WARN" />
+		</filter>
+	</appender>
+	
+	<appender name="error" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.base}/logs/mba_error.log" />
+		<param name="ImmediateFlush" value="true" />
+		<param name="MaxFileSize" value="50MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c [%t] %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="ERROR" />
+		</filter>
+	</appender>
+
+	<appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="100000" />
+		<param name="blocking" value="true" />
+		<appender-ref ref="logfile" />
+		<appender-ref ref="warn" />
+		<appender-ref ref="error" />
+	</appender>
+
+	<logger name="atomikos" additivity="false">
+		<level value="off" />
+	</logger>
+	<logger name="org.apache.activemq" additivity="false">
+		<level value="info" />
+	</logger>
+	<logger name="org.apache.zookeeper.ClientCnxn" additivity="false">
+		<level value="info" />
+	</logger>
+	<logger name="com.alibaba.dubbo.remoting.exchange.support.header.HeartBeatTask" additivity="false">
+		<level value="info" />
+	</logger>
+	<logger name="com.alibaba.dubbo.remoting.exchange.support.header.HeartbeatHandler" additivity="false">
+		<level value="info" />
+	</logger>
+	
+	<logger name="java.sql" additivity="false">
+		<level value="info" />
+	</logger>
+	<logger name="com.ibatis" additivity="false">
+		<level value="info" />
+	</logger>
+	
+<!-- 	<logger name="org.springframework" additivity="false">
+		<level value="off" />
+	</logger> -->
+	
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="stdout" />
+		<appender-ref ref="ASYNC" />
+	</root>
+</log4j:configuration>
