@@ -7,10 +7,10 @@
         http://code.alibabatech.com/schema/dubbo  
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd  
         ">
-    <dubbo:consumer id="mbaService" registry="greensZookeeper" check="false" />    
-    <dubbo:application name="greens_server" />
-  	<dubbo:registry  protocol="zookeeper" address="127.0.0.1:2181" id="greensZookeeper"/>
+    <dubbo:consumer id="greensConsumer" registry="greensZookeeper_web" check="false" />    
+    <dubbo:application name="greens_web" />
+  	<dubbo:registry  protocol="zookeeper" address="127.0.0.1:2181" id="greensZookeeper_web"/>
 	<!--dubbo客户端  -->
-	<dubbo:reference id="dubboServiceImple" interface="org.greens.api.DubboService"  consumer="greensServer"  check="false"  />
+	<dubbo:reference id="dubboServiceImple" interface="org.greens.api.DubboService"  consumer="greensConsumer"  check="false" version="1.0.0"/>
 	
  </beans> 
