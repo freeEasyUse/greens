@@ -63,6 +63,21 @@
 		<servlet-name>SpringMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
+	
+	<!-- 解决Jetty启动后不能修改静态文件问题 -->
+	<servlet>
+		<servlet-name>default</servlet-name>
+		<servlet-class>org.mortbay.jetty.servlet.DefaultServlet</servlet-class>
+		<init-param>
+			<param-name>useFileMappedBuffer</param-name>
+			<param-value> false </param-value>
+		</init-param>
+		<load-on-startup> 0 </load-on-startup>
+	</servlet>
+	
+	
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
