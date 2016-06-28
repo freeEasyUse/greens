@@ -12,5 +12,5 @@
     <context:component-scan base-package="org.greens" />
     
     <!-- 引入dubbo -->
-    <import resource="spring-dubbo-client.xml"/>
+   <!--  <import resource="spring-dubbo-client.xml"/> -->
 </beans>

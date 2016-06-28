@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/dubbo")
 public class DubboController extends BaseController {
 
-	@Autowired
+	@Autowired(required=false)
 	@Qualifier(value="dubboServiceImple")
 	private DubboService dubboService;
 	
