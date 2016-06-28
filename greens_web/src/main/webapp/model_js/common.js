@@ -3,6 +3,9 @@
  */
 var common = {};
 
+/**
+ * 显示分页文字
+ */
 common.showPageText = function(type,page){
 	switch (type) {
     case "first":
