@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>welcome page</title>
+<meta name="author" content="gel" />
+<meta name="description" content="welcome" />
+
+<!-- Don't forget to set your site up: http://google.com/webmasters -->
+<meta name="google-site-verification" content="" />
+
+<!-- Who owns the content of this site? -->
+<meta name="Copyright" content="simpleuse" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="res/bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="res/style.css" />
+<link rel="stylesheet" href="res/etalage.css" />
+<link rel="stylesheet" href="res/megamenu.css" />
+<!-- react require -->
+<script src="res/react/react.js"></script>
+<script src="res/react/react-dom.js"></script>
+<script src="res/react/browser.min.js"></script>
+<!-- jquery -->
+<script src="res/jquery-3.0.0.min.js"></script>
+<!-- bootstrap -->
+<script src="res/bootstrap-paginator-master/lib/bootstrap.min.js"></script>
+<!-- bootstrap tree -->
+<script src="res/bootstrap-3.3.5-dist/bootstrap-treeview.js"></script>
+<!-- bootstrap page -->
+<script src="res/bootstrap-paginator-master/src/bootstrap-paginator.js"></script>
+<script src="model_js/common.js"></script>
+<!-- megamenu -->
+<script type="text/javascript" src="res/megamenu.js"></script>
+<script type="text/javascript" src="res/menu_jquery.js"></script>
+<script src="res/simpleCart.min.js"> </script>
+</head>
+<body>
+	<!-- 顶部信息 -->
+	<div class="top_bg">
+		<div class="container">
+			<div class="header_top">
+				<!-- 头部右侧 -->
+				<div class="top_right">
+					<ul>
+						<li><a href="#">帮助</a></li>|
+						<li><a href="contact.html">联系我们</a></li>|
+						<li><a href="#">Delivery information</a></li>
+					</ul>
+				</div>
+				<!-- 头部左侧 -->
+				<div class="top_left">
+					<h2>
+						<span></span> Call us : 032 2352 782
+					</h2>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 头部信息 -->
+	<div class="header_bg">
+		<div class="container">
+			<div class="header">
+				<div class="head-t">
+					<!-- logo显示 -->
+					<div class="logo">
+						<a href="welcome.html"><img src="images/logo.png" class="img-responsive" alt=""/> </a>
+					</div>
+					<!-- 头部右侧 -->
+					<div class="header_right">
+						<div class="rgt-bottom">
+							<!-- 购物车 -->
+							<div class="cart box_1">
+								<a href="checkOut.html">
+									<h3>
+										<span class="simpleCart_total">￥0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity">0</span> items)<img src="images/bag.png" alt="">
+									</h3>
+								</a>
+								<div class="clearfix"></div>
+							</div>
+							<!-- 查看订单 -->
+							<div class="create_btn">
+								<a href="checkout.html">历史订单</a>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<!-- 搜索 -->
+						<div class="search">
+							<form>
+								<input type="text" value="" placeholder="search...">
+								<input type="submit" value="">
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<!-- 菜单 -->
+				<div id="menu"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/babel" src="model_js/megaMenuCommon.js"></script>
+</body>
+</html>
