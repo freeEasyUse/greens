@@ -44,13 +44,13 @@ var MegaMenu = React.createClass({
 			<ul className="megamenu skyblue">
 				<li className="active grid"><a className="color1" href="index.html">index</a></li>
 				{this.props.liListData.map(function(liv){
-					console.log("asdfs");
-					console.log(liv);
+					console.log("xunhuan2");
+					console.log(liv.list);
 					return(
-						<div>
-							<li><a className="color2" href="#">{liv.showText}</a></li>
-							<ShowPanel dataList={liv.list}/>
-						</div>
+							<li>
+								<a className="color1" href="#">{liv.showText}</a>
+								<ShowPanel dataList={liv.list}/>
+							</li>
 					);
 				})}
 			</ul>
