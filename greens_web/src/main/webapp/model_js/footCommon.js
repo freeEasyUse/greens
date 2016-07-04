@@ -21,7 +21,7 @@ var HelpCenter = React.createClass({
 var AboutUs = React.createClass({
 	render:function(){
 		return (
-			<div className="col-md-2 abt">
+			<div className="col-md-3 abt">
 				<h4>关于我们</h4>
 				<li><a href="#">关于菜蓝</a></li>
 				<li><a href="#">监控中心</a></li>
@@ -36,7 +36,7 @@ var AboutUs = React.createClass({
 var UserCenter =  React.createClass({
 	render:function(){
 		return (
-			<div className="col-md-2 myac">
+			<div className="col-md-3 myac">
 				<h4>会员中心</h4>
 				<li><a href="register.html">登录说明</a></li>
 				<li><a href="#">我的信息</a></li>
@@ -52,7 +52,7 @@ var UserCenter =  React.createClass({
 var Address = React.createClass({
 	render:function(){
 		return (
-			<div className="col-md-5 our-st">
+			<div className="col-md-3 our-st">
 				<h4>OUR STORES</h4>
 				<li><i class="add"> </i>Jl. Haji Muhidin, Blok G no.69</li>
 				<li><i class="phone"> </i>025-2839341</li>
@@ -63,14 +63,17 @@ var Address = React.createClass({
 });
 
 
-var FootComment =  React.creatClass({
+var FootComment =  React.createClass({
 	render:function(){
 		return (
-				<div className="container">
-					<HelpCenter/>
-					<AboutUs/>
-					<UserCenter/>
-					<UserCenter/>
+				<div className="footer">
+					<hr></hr>
+					<div className="container">
+						<HelpCenter/>
+						<AboutUs/>
+						<UserCenter/>
+						<UserCenter/>
+					</div>
 				</div>
 		);
 	}

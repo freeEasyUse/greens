@@ -12,7 +12,8 @@
 <!-- Who owns the content of this site? -->
 <meta name="Copyright" content="simpleuse" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="res/bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="res/bootstrap-3.3.5-dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="res/style.css" />
 <link rel="stylesheet" href="res/etalage.css" />
 <link rel="stylesheet" href="res/megamenu.css" />
@@ -32,7 +33,9 @@
 <!-- megamenu -->
 <script type="text/javascript" src="res/megamenu.js"></script>
 <script type="text/javascript" src="res/menu_jquery.js"></script>
-<script src="res/simpleCart.min.js"> </script>
+<script src="res/simpleCart.min.js">
+	
+</script>
 </head>
 <body>
 	<!-- 顶部信息 -->
@@ -57,7 +60,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 头部信息 -->
 	<div class="header_bg">
 		<div class="container">
@@ -65,7 +68,8 @@
 				<div class="head-t">
 					<!-- logo显示 -->
 					<div class="logo">
-						<a href="welcome.html"><img src="images/logo.png" class="img-responsive" alt=""/> </a>
+						<a href="welcome.html"><img src="images/logo.png"
+							class="img-responsive" alt="" /> </a>
 					</div>
 					<!-- 头部右侧 -->
 					<div class="header_right">
@@ -74,7 +78,9 @@
 							<div class="cart box_1">
 								<a href="checkOut.html">
 									<h3>
-										<span class="simpleCart_total">￥0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity">0</span> items)<img src="images/bag.png" alt="">
+										<span class="simpleCart_total">￥0.00</span> (<span
+											id="simpleCart_quantity" class="simpleCart_quantity">0</span>
+										items)<img src="images/bag.png" alt="">
 									</h3>
 								</a>
 								<div class="clearfix"></div>
@@ -83,28 +89,59 @@
 							<div class="create_btn">
 								<a href="checkout.html">历史订单</a>
 							</div>
-							<div class="clearfix"> </div>
+							<div class="clearfix"></div>
 						</div>
 						<!-- 搜索 -->
 						<div class="search">
 							<form>
-								<input type="text" value="" placeholder="search...">
-								<input type="submit" value="">
+								<input type="text" value="" placeholder="search..."> <input
+									type="submit" value="">
 							</form>
 						</div>
-						<div class="clearfix"> </div>
+						<div class="clearfix"></div>
 					</div>
-					<div class="clearfix"> </div>
+					<div class="clearfix"></div>
 				</div>
 				<!-- 菜单 -->
 				<div id="menu"></div>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 内容区域 -->
+	<div class="container">
+		<div class="women_main">
+			<div class="col-md-12 w_content">
+				<div class="women">
+					<a href="#"><h4>
+							Enthecwear - <span>4449 itemms</span>
+						</h4></a>
+					<ul class="w_nav">
+						<li>Sort :</li>
+						<li><a class="active" href="#">popular</a></li> |
+						<li><a href="#">new </a></li> |
+						<li><a href="#">discount</a></li> |
+						<li><a href="#">price: Low High </a></li>
+						<div class="clear"></div>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<!-- 商品内容 -->
+				<div id="goodGroup"></div>
+				<!-- 分页组件 -->
+				<div id="pageCommon"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- 底部信息 -->
+	<div id="footer">
+	</div>
 	
 	<!-- 加载头部菜单组件 -->
 	<script type="text/babel" src="model_js/megaMenuCommon.js"></script>
+	<script type="text/babel" src="model_js/contentCommon.js"></script>
+	<script type="text/babel" src="model_js/pageCommon.js"></script>
+	<script type="text/babel" src="model_js/footCommon.js"></script>
 </body>
 </html>
