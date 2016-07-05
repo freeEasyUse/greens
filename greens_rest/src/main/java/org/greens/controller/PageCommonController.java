@@ -30,7 +30,7 @@ public class PageCommonController extends BaseController {
 
 	@RequestMapping(value="/getPageInfo",method = RequestMethod.POST)
 	@ResponseBody
-	public void getPageIndex(@RequestBody PageInfo<String,PersonVo> pageInfo,HttpServletResponse response){
+	public void getPageIndex(@RequestBody PageInfo pageInfo,HttpServletResponse response){
 		pageInfo.setTotalPages(100);
 		Map<String, Object> result = new HashMap<String, Object>();
 		List<String> strs = Arrays.asList("1","2","3","4");

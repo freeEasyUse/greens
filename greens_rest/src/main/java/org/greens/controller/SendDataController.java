@@ -1,14 +1,19 @@
 package org.greens.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.greens.vo.PageInfo;
+import org.greens.vo.PersonVo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -65,5 +70,16 @@ public class SendDataController extends BaseController {
 		Map<String, Object> r = new HashMap<String, Object>();
 		r.put("result", goodGroup);
 		returnSuccess(response, r);
+	}
+	
+	@RequestMapping(value="/contentWithPage",method = RequestMethod.POST)
+	@ResponseBody
+	public void getPageIndex(@RequestBody PageInfo<String,PersonVo> pageInfo,HttpServletResponse response){
+		pageInfo.setTotalPages(100);
+		Map<String, Object> result = new HashMap<String, Object>();
+		List<String> strs = Arrays.asList("1","2","3","4");
+		pageInfo.setResult(strs);
+		result.put("result", pageInfo);
+		returnSuccess(response, result);
 	}
 }
