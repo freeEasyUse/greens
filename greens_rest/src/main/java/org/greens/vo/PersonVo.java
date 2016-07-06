@@ -5,6 +5,8 @@ public class PersonVo{
 	private String name;
 	
 	private int age;
+	
+	private String menuCode;
 
 	public String getName() {
 		return name;
@@ -21,6 +23,15 @@ public class PersonVo{
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	public String getMenuCode() {
+		return menuCode;
+	}
+
+	public void setMenuCode(String menuCode) {
+		this.menuCode = menuCode;
+	}
+	
 	
 	
 }

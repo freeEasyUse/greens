@@ -74,11 +74,20 @@ public class SendDataController extends BaseController {
 	
 	@RequestMapping(value="/contentWithPage",method = RequestMethod.POST)
 	@ResponseBody
-	public void getPageIndex(@RequestBody PageInfo<String,PersonVo> pageInfo,HttpServletResponse response){
-		pageInfo.setTotalPages(100);
+	public void getPageIndex(@RequestBody PageInfo<Map<String, Object>,PersonVo> pageInfo,HttpServletResponse response){
+		String menuCode = pageInfo.getSearchConditon().getMenuCode();
+		List<Map<String, Object>> goodGroup = new ArrayList<Map<String,Object>>();
+		int dex = Integer.parseInt(menuCode.substring(0, 1))*4+4;
+		for(int i = 0;i<dex;i++){
+			Map<String, Object> o = new HashMap<String, Object>();
+			o.put("imgSrc", "images/w5.jpg");
+			o.put("goodName", "goodName"+i);
+			o.put("desc", "description");
+			goodGroup.add(o);
+		}
+		pageInfo.setTotalPageByAllCount(goodGroup.size());
+		pageInfo.setResult(goodGroup.subList((pageInfo.getCurrentPage()-1)*pageInfo.getRowCount(), pageInfo.getCurrentPage()*pageInfo.getRowCount()));
 		Map<String, Object> result = new HashMap<String, Object>();
-		List<String> strs = Arrays.asList("1","2","3","4");
-		pageInfo.setResult(strs);
 		result.put("result", pageInfo);
 		returnSuccess(response, result);
 	}

@@ -15,11 +15,11 @@ public class PageInfo<T,K>{
 
 	private int currentPage;	//当前页
 	
-	private int numberOfPages = 10;	//显示页面数
+	private int numberOfPages = 5;	//显示页面数
 	
 	private int totalPages;		//总页数
 	
-	private int rowCount;		//每页数量
+	private int rowCount = 6;		//每页数量
 	
 	private List<T> result;		//查询结果集
 	
@@ -71,5 +71,12 @@ public class PageInfo<T,K>{
 
 	public void setSearchConditon(K searchConditon) {
 		this.searchConditon = searchConditon;
+	}
+	
+	/**
+	 * 根据总记录数 计算一共分页数量
+	 */
+	public void setTotalPageByAllCount(int allCount){
+		this.totalPages = allCount%this.getRowCount()==0?allCount/this.getRowCount():allCount/this.getRowCount()+1;
 	}
 }

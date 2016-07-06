@@ -1,7 +1,14 @@
 /**
+ * 分页组件中记录查询条件
+ */
+var search = new Object();
+/**
+ * 记录是否为菜单点击
+ */
+var isMenuClick = false;
+/**
  * megamenu组建
  */
-
 /** 每列显示组件 ul li */
 var ListData = React.createClass({
 	render:function(){
@@ -92,6 +99,8 @@ var MegaMenu = React.createClass({
 		$(".h_nav >ul > li > a").click(function(event){
 			var aTag = $(event.target).get(0);
 			var menuCode = $(aTag).attr("data");
+			search.menuCode = menuCode;
+			isMenuClick = true;
 			$.ajax({
 	  			url: "/greens_web/sendData/goods?menuCode="+menuCode,
 	  			async: false,
@@ -100,8 +109,8 @@ var MegaMenu = React.createClass({
 	  			type: 'GET',
 	  			success: function(data) {
 					var r = $.parseJSON(data);
-					ReactDOM.render(<ItemGroup goodGroup={r.result}/>,$("#goodGroup").get(0));
-					ReactDOM.render(<PageCommon url = {"/greens_web/pageCommon/getPageInfo"} rowCount = {10} searchConditon={search} contentFun={contentResult}/>,$("#pageCommon").get(0));
+					ReactDOM.render(<PageCommon url = {"/greens_web/sendData/contentWithPage"} rowCount = {4} searchConditon={search} contentFun={contentResult}/>,$("#pageCommon").get(0));
+					//ReactDOM.render(<ItemGroup goodGroup={r.result}/>,$("#goodGroup").get(0));
 	  			}.bind(this),
 	  			error: function(xhr, status, err) {
 	    			console.error(this.props.addUrl, status, err.toString());
@@ -112,11 +121,11 @@ var MegaMenu = React.createClass({
 });
 
 
-		/**
-		 * 内容区组件
-		 */
+/**
+ * 内容区组件
+ */
 
-		/** 具体商品显示组件 */
+/** 具体商品显示组件 */
 var GoodItemShow = React.createClass({
 	render:function(){
 		return (
@@ -203,7 +212,10 @@ var ajaxFunc = function(sendData,docObjec,url,clickHanlder,contentFunc){
 	});
 };
 
-
+/** 分页结果显示 */
+var contentResult = function(result){
+	ReactDOM.render(<ItemGroup goodGroup={result}/>,$("#goodGroup").get(0));
+}
 
 var PageCommon = React.createClass({
 	
@@ -219,6 +231,7 @@ var PageCommon = React.createClass({
 	
 	/** 初始设置*/
 	getInitialState:function(){
+		console.log("pageCommon init......");
 		var pageInfo = new Object();
 		pageInfo.rowCount = this.props.rowCount;
 		pageInfo.currentPage = 1;
@@ -228,6 +241,13 @@ var PageCommon = React.createClass({
 	
 	/** render渲染 */
 	render:function(){
+		/** 当从菜单点击时候  修改分页当前页数 */
+		if(isMenuClick){
+			isMenuClick = false;
+			var pageInfo = this.state;
+			pageInfo.currentPage = 1;
+			this.setState(pageInfo);
+		}
 		return (<ul ref="pageCom"></ul>);
 	},
 	
@@ -253,14 +273,7 @@ var PageCommon = React.createClass({
 });
 
 
-var search = new Object();
-search.name = "jonh";
-search.age = 23;
 
 
-var contentResult = function(result){
-	console.log("this is result");
-	console.log(result);
-}
-								
+/** 菜单栏 */
 ReactDOM.render(<MegaMenu url={"/greens_web/sendData/menu"}/>,$("#menu").get(0));
