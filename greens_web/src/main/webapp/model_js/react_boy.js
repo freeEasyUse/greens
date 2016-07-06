@@ -12,7 +12,6 @@ var isMenuClick = false;
 /** 每列显示组件 ul li */
 var ListData = React.createClass({
 	render:function(){
-		console.log("render listData");
 		return (
 				<div className="col1">
 					<div className="h_nav">
@@ -32,7 +31,6 @@ var ListData = React.createClass({
 /** 创建显示面板 megapanel */
 var ShowPanel = React.createClass({
 	render:function(){
-		console.log("render ShowPanel");
 		return (
 				<div className="megapanel">
 					<div className="row">
@@ -50,7 +48,6 @@ var ShowPanel = React.createClass({
 var MegaMenu = React.createClass({
 	
 	getInitialState:function(){
-		console.log("getInitiaState");
 		var result;
 		$.ajax({
   			url: this.props.url,
@@ -59,10 +56,8 @@ var MegaMenu = React.createClass({
   			contentType : "application/json",
   			type: 'POST',
   			success: function(data) {
-  				console.log("ajax request");
 				var r = $.parseJSON(data);
 				result = r;
-				console.log(result);
   			}.bind(this),
   			error: function(xhr, status, err) {
     			console.error(this.props.addUrl, status, err.toString());
@@ -73,14 +68,10 @@ var MegaMenu = React.createClass({
 	
 	
 	render:function(){
-		console.log("render MegaMenu");
-		console.log(this.state.result);
 		return (
 			<ul className="megamenu skyblue">
-				<li className="active grid"><a className="color1" href="index.html">index</a></li>
+				<li className="active grid"><a className="color1" href="#">index</a></li>
 				{this.state.result.map(function(liv){
-					console.log("xunhuan2");
-					console.log(liv.showText);
 					return(
 							<li>
 								<a className="color1" href="#">{liv.showText}</a>
@@ -92,31 +83,24 @@ var MegaMenu = React.createClass({
 		);
 	},
 	componentDidMount:function(){
-		console.log("compoentDidMount");
 		$(".megamenu").megamenu();
-		console.log("find a");
-		console.log($(".h_nav >ul > li > a"));
 		$(".h_nav >ul > li > a").click(function(event){
+			/** 隐藏首页 */
+			$("#indexShow").hide();
+			$("#mainContent").show();
 			var aTag = $(event.target).get(0);
 			var menuCode = $(aTag).attr("data");
 			search.menuCode = menuCode;
 			isMenuClick = true;
-			$.ajax({
-	  			url: "/greens_web/sendData/goods?menuCode="+menuCode,
-	  			async: false,
-	  			dataType: 'json',
-	  			contentType : "application/json",
-	  			type: 'GET',
-	  			success: function(data) {
-					var r = $.parseJSON(data);
-					ReactDOM.render(<PageCommon url = {"/greens_web/sendData/contentWithPage"} rowCount = {4} searchConditon={search} contentFun={contentResult}/>,$("#pageCommon").get(0));
-					//ReactDOM.render(<ItemGroup goodGroup={r.result}/>,$("#goodGroup").get(0));
-	  			}.bind(this),
-	  			error: function(xhr, status, err) {
-	    			console.error(this.props.addUrl, status, err.toString());
-	  			}.bind(this)
-			});
+			ReactDOM.render(<PageCommon url = {"/greens_web/sendData/contentWithPage"} rowCount = {4} searchConditon={search} contentFun={contentResult}/>,$("#pageCommon").get(0));
 		});
+		
+		/** 首页点击 */
+		$(".megamenu>.active>a").click(function(){
+			$("#indexShow").show();
+			$("#mainContent").hide();
+		});
+		
 	}
 });
 
@@ -186,8 +170,6 @@ var ajaxFunc = function(sendData,docObjec,url,clickHanlder,contentFunc){
 			type: 'POST',
 			data: JSON.stringify(sendData),
 			success: function(data) {
-			console.log("返回的数据");
-			console.log(data);
 			var r = $.parseJSON(data);
 			var pageOption = r.result;
 			var options = {
@@ -203,7 +185,6 @@ var ajaxFunc = function(sendData,docObjec,url,clickHanlder,contentFunc){
 		            onPageClicked:clickHanlder
 				}
 		   $(docObjec).bootstrapPaginator(options);
-			console.log("开始加载内容区域");
 			contentFunc(pageOption.result);
 			}.bind(this),
 			error: function(xhr, status, err) {
@@ -221,7 +202,6 @@ var PageCommon = React.createClass({
 	
 	/** 点击页数*/
 	pageClick:function(e,originalEvent,type,page){
-		console.log("click");
     	var pageInfo = new Object();
     	pageInfo.currentPage = page;
     	pageInfo.rowCount = this.props.rowCount;
@@ -231,7 +211,6 @@ var PageCommon = React.createClass({
 	
 	/** 初始设置*/
 	getInitialState:function(){
-		console.log("pageCommon init......");
 		var pageInfo = new Object();
 		pageInfo.rowCount = this.props.rowCount;
 		pageInfo.currentPage = 1;
@@ -253,19 +232,15 @@ var PageCommon = React.createClass({
 	
 	/** 初始化 渲染之后执行的方法 只执行一次*/
 	componentDidMount:function(){
-		console.log("componentDidMount");
 		/** 获取渲染的元素 */
 		var ulDom = this.refs.pageCom;
-		console.log($(ulDom));
 		ajaxFunc(this.state,ulDom,this.props.url,this.pageClick,this.props.contentFun);
 	},
 	
 	/** state改变后 调用方法 return true 重新render 该方法在初始时候不调用*/
 	shouldComponentUpdate:function(nextProps,nextState){
-		console.log("shouldComponentUpdate");
 		/** 获取渲染的元素 */
 		var ulDom = this.refs.pageCom;
-		console.log($(ulDom));
 		ajaxFunc(nextState,ulDom,this.props.url,this.pageClick,this.props.contentFun);
 		return true;
 	},

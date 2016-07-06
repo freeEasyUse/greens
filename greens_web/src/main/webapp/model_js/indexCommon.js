@@ -90,7 +90,7 @@ for(var i=0;i<3;i++){
 }
 
 
-ReactDOM.render(<IndexBoy id={id} cators={cators} items={items}/>,$("#images").get(0));
+ReactDOM.render(<IndexBoy id={id} cators={cators} items={items}/>,$("#indexShow").get(0));
 
 
 
