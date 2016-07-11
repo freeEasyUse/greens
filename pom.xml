@@ -225,7 +225,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<dependency>
+<!-- 			<dependency>
 				<groupId>com.tony.dubbo</groupId>
 				<artifactId>dubbo-json-protocol</artifactId>
 				<version>0.0.2</version>
@@ -235,7 +235,7 @@
 						<groupId>org.springframework</groupId>
 					</exclusion>
 				</exclusions>
-			</dependency>
+			</dependency> -->
 			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
 				<artifactId>zookeeper</artifactId>

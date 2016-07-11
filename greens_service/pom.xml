@@ -91,10 +91,10 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.tony.dubbo</groupId>
 			<artifactId>dubbo-json-protocol</artifactId>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
