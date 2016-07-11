@@ -6,9 +6,6 @@ var ModelComment = React.createClass({
 	commitFunction:function(){
 		 console.log("commit");
 		 /** 验证提交信息 */
-		 
-		 
-		 
     	 $('#addGood').ajaxSubmit({
 	           url:'/greens_web/goods/add',
 	           cache:false,
@@ -110,6 +107,7 @@ var ModelComment = React.createClass({
 							 	</div>
 							 </div>
 							 <div className="modal-footer">
+							 	<button type="reset" className="btn btn-default" ref="resetButton">重置</button>
 							 	<button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
 					            <button type="button" className="btn btn-primary" onClick={this.commitFunction}>提交</button>
 							 </div>
@@ -120,6 +118,14 @@ var ModelComment = React.createClass({
 		</div>
 		}
 		return result;
+	},
+	
+	/** 渲染完成 清空 form */
+	componentDidMount:function(){
+		console.log("render after");
+		console.log(this.refs.resetButton);
+		console.log($(this.refs.resetButton));
+		$(this.refs.resetButton).click();
 	}
 });
 
