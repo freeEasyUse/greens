@@ -23,6 +23,7 @@
 <script src="res/react/browser.min.js"></script>
 <!-- jquery -->
 <script src="res/jquery-3.0.0.min.js"></script>
+<script src="res/jquery-form.js"></script>
 <!-- bootstrap -->
 <script src="res/bootstrap-paginator-master/lib/bootstrap.min.js"></script>
 <!-- bootstrap tree -->
@@ -87,6 +88,12 @@
 							<div class="create_btn">
 								<a href="checkout.html">历史订单</a>
 							</div>
+							<div class="create_btn">
+								<a href="#" data-toggle="modal" data-target="#myModal">发布商品</a>
+							</div>
+							<div class="create_btn">
+								<a href="checkout.html">查看发布</a>
+							</div>
 							<div class="clearfix"></div>
 						</div>
 						<!-- 搜索 -->
@@ -138,9 +145,11 @@
 	</div>
 	<!-- 底部信息 -->
 	<div id="footer"></div>
+	<div id="modalCon"></div>
 	<!-- 加载头部菜单组件 -->
 	<script type="text/babel" src="model_js/react_boy.js"></script>
 	<script type="text/babel" src="model_js/footCommon.js"></script>
 	<script type="text/babel" src="model_js/indexCommon.js"></script>
+	<script type="text/babel" src="model_js/modalComment.js"></script>
 </body>
 </html>
