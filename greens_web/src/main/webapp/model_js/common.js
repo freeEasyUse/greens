@@ -20,3 +20,50 @@ common.showPageText = function(type,page){
         return "第"+page+"页";
     }
 };
+
+/**
+ *  级联选择框
+ *  pSelect 父select
+ *  purl	父类内容获取地址
+ *  cSelect 子select
+ *  curl	子类内容获取地址
+ */
+common.selectCommon = function(pSelect,purl,cSelect,curl){
+	$.ajax({
+			url: purl,
+			dataType: 'json',
+			contentType : "application/json",
+			type: 'POST',
+			success: function(data) {
+			var r = $.parseJSON(data);
+			var bigTypes = r.list;
+			$(pSelect).append("<option>请选择</option>");
+			$(cSelect).append("<option>请选择</option>");
+			$.each(bigTypes,function(k,v){
+				$(pSelect).append("<option value="+v+">"+v+"</option>");
+			});
+			},
+			error: function(xhr, status, err) {
+			console.error(this.props.addUrl, status, err.toString());
+			}
+	});
+	
+	$(pSelect).change(function(event){
+		var ptype = event.target.value;
+		$.ajax({
+			url:curl+"?ptype="+ptype,
+			dataType:'json',
+			contentType:"application/json",
+			type:"get",
+			success:function(data){
+				var r = $.parseJSON(data);
+				var types = r.list;
+				$(cSelect).empty();
+				$(cSelect).append("<option>请选择</option>");
+				$.each(types,function(k,v){
+					$(cSelect).append("<option value="+v+">"+v+"</option>");
+				});
+			}
+		});
+	});
+}

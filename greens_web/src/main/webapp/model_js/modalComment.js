@@ -21,6 +21,10 @@ var ModelComment = React.createClass({
 	     });
 	},
 	
+	resetInfo:function(){
+		$(this.refs.resetButton).trigger("click");
+	},
+	
 	render:function(){
 		var result = null;
 		if(this.props.type=="add"){
@@ -28,7 +32,7 @@ var ModelComment = React.createClass({
 			<div className="modal-dialog">
 				<div className="modal-content">
 					<div className="modal-header">
-						<button type="button" className="close" data-dismiss="modal" aria-hidden="true">关闭</button>
+						<button type="button" className="close" data-dismiss="modal" aria-hidden="true" onClick={this.resetInfo}>关闭</button>
 						<h4 className="modal-title">发布商品</h4>
 					</div>
 					<div className="modal-body">
@@ -58,22 +62,12 @@ var ModelComment = React.createClass({
 							<div className="form-group">
 								<label className="col-sm-2 control-label">商品大类</label>
 								<div className="col-sm-4">
-									<select name="bigType">
-								        <option>something</option>
-								        <option>2</option>
-								        <option>3</option>
-								        <option>4</option>
-								        <option>5</option>
+									<select name="bigType" ref="bigType">
 									</select>
 								</div>
 								<label className="col-sm-2 control-label">商品子类</label>
 								<div className="col-sm-4">
-									<select name="type">
-								        <option>something</option>
-								        <option>2</option>
-								        <option>3</option>
-								        <option>4</option>
-								        <option>5</option>
+									<select name="type" ref="type">
 						        	</select>
 								</div>
 							 </div>
@@ -81,22 +75,12 @@ var ModelComment = React.createClass({
 							 <div className="form-group">
 								<label className="col-sm-2 control-label">发货省份</label>
 								<div className="col-sm-4">
-									<select name="province">
-								        <option>something</option>
-								        <option>2</option>
-								        <option>3</option>
-								        <option>4</option>
-								        <option>5</option>
+									<select name="province" ref="province">
 									</select>
 								</div>
 								<label className="col-sm-2 control-label">发货城市</label>
 								<div className="col-sm-4">
-									<select name="city">
-								        <option>something</option>
-								        <option>2</option>
-								        <option>3</option>
-								        <option>4</option>
-								        <option>5</option>
+									<select name="city" ref="city">
 						        	</select>
 								</div>
 							 </div>
@@ -108,7 +92,7 @@ var ModelComment = React.createClass({
 							 </div>
 							 <div className="modal-footer">
 							 	<button type="reset" className="btn btn-default" ref="resetButton">重置</button>
-							 	<button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
+							 	<button type="button" className="btn btn-default" data-dismiss="modal" onClick={this.resetInfo}>关闭</button>
 					            <button type="button" className="btn btn-primary" onClick={this.commitFunction}>提交</button>
 							 </div>
 						</form>
@@ -120,13 +104,17 @@ var ModelComment = React.createClass({
 		return result;
 	},
 	
-	/** 渲染完成 清空 form */
+	/** 渲染结束 实在下拉框中的内容 */
 	componentDidMount:function(){
-		console.log("render after");
-		console.log(this.refs.resetButton);
-		console.log($(this.refs.resetButton));
-		$(this.refs.resetButton).click();
+		var selectRef_big = this.refs.bigType;
+		var selectRef_type = this.refs.type;
+		common.selectCommon(selectRef_big,'/greens_web/goods/getBigType',selectRef_type,'/greens_web/goods/getTypes');
+		
+		var selectRef_province = this.refs.province;
+		var selectRef_city = this.refs.city;
+		common.selectCommon(selectRef_province,'/greens_web/goods/province',selectRef_city,'/greens_web/goods/getCities');
 	}
+	
 });
 
 
