@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>cart demo</title>
+<script src="res/jquery-3.0.0.min.js"></script>
+<script src="res/simpleCart.min.js"></script>
+	<script>
+		simpleCart({
+			checkout: { 
+				type: "PayPal" , 
+				email: "geyueliang_89@163.com" 
+			},
+			language: "english-us"
+		});
+	</script>
+
+</head>
+<body>
+
+	<div>
+		Cart: <a class="simpleCart_total"></a> (<span id="simpleCart_quantity"
+			class="simpleCart_quantity"></span> items) <br /> 
+			<input type="button" class="simpleCart_empty" value="清空"></input>
+			<input type="button" class="simpleCart_checkout" value="结算"></input>
+			
+	</div>
+	
+	<!-- 显示购物车内容 -->
+	<div class="simpleCart_items"></div>
+	
+	
+	
+
+	<div class="simpleCart_shelfItem">
+		<h3 class="item_name">good</h3>
+		<a class="item_price">20</a>
+		<select class="item_quantity">
+			<option value=1>1</option>
+			<option value=2>2</option>
+			<option value=3>3</option>
+		</select>
+		<input type="button" class="item_add" value="添加" />
+	</div>
+
+
+	<div class="simpleCart_shelfItem">
+		<h3 class="item_name">good2</h3>
+		<a class="item_price">36.9</a>
+		<select class="item_quantity">
+			<option value=1>1</option>
+			<option value=2>2</option>
+			<option value=3>3</option>
+		</select>
+		<input type="button" class="item_add" value="添加" />
+	</div>
+
+
+
+</body>
+</html>
