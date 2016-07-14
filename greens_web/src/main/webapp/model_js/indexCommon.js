@@ -90,8 +90,9 @@ for(var i=0;i<3;i++){
 }
 
 
-ReactDOM.render(<IndexBoy id={id} cators={cators} items={items}/>,$("#indexShow").get(0));
+//存放组件
+var indexBoy = React.createElement(IndexBoy,{id:id,cators:cators,items:items});
+common.addCommon("indexBoy",indexBoy);
 
-
-
+//ReactDOM.render(<IndexBoy id={id} cators={cators} items={items}/>,$("#indexShow").get(0));
 

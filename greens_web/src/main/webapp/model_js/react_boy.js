@@ -248,7 +248,6 @@ var PageCommon = React.createClass({
 });
 
 
-
-
-/** 菜单栏 */
-ReactDOM.render(<MegaMenu url={"/greens_web/sendData/menu"}/>,$("#menu").get(0));
+//存放组件
+var megaMenu = React.createElement(MegaMenu,{url:"/greens_web/sendData/menu"});
+common.addCommon("megaMenu",megaMenu);

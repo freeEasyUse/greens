@@ -79,8 +79,8 @@ var FootComment =  React.createClass({
 	}
 });
 
-ReactDOM.render(<FootComment/>,$("#footer").get(0));
 
-
-
-
+//存放组件
+var footComment = React.createElement(FootComment);
+common.addCommon("footComment",footComment);
+//ReactDOM.render(<FootComment/>,$("#footer").get(0));

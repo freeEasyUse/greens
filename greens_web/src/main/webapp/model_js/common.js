@@ -4,6 +4,10 @@
 var common = {};
 
 /**
+ * 用来存放组件
+ */
+common.commonTable = new Object();
+/**
  * 显示分页文字
  */
 common.showPageText = function(type,page){
@@ -66,4 +70,14 @@ common.selectCommon = function(pSelect,purl,cSelect,curl){
 			}
 		});
 	});
+};
+
+//存放组件
+common.addCommon = function(key,value){
+	common.commonTable[key] = value;
+};
+
+//获取组件
+common.getCommon = function(key){
+	return common.commonTable[key];
 }

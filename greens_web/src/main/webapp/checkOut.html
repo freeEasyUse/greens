@@ -116,7 +116,7 @@
 		</div>
 	</div>
 	<!-- 首页显示 -->
-	<div id="indexShow"></div>
+	<div id="checkOutContent"></div>
 	<!-- 内容区域 -->
 	<div id="mainContent">
 		<div class="container">
@@ -152,15 +152,12 @@
 	<!-- 加载头部菜单组件 -->
 	<script type="text/babel" src="model_js/react_boy.js"></script>
 	<script type="text/babel" src="model_js/footCommon.js"></script>
-	<script type="text/babel" src="model_js/indexCommon.js"></script>
 	<script type="text/babel" src="model_js/modalComment.js"></script>
 	<script type="text/babel">
 		ReactDOM.render(common.getCommon("megaMenu"),$("#menu").get(0));
 		ReactDOM.render(common.getCommon("footComment"),$("#footer").get(0));
-		ReactDOM.render(common.getCommon("indexBoy"),$("#indexShow").get(0));
 		ReactDOM.render(common.getCommon("modelComment"),$("#modalCon").get(0));
 	</script>
-
 	
 </body>
 </html>

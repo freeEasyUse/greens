@@ -117,5 +117,7 @@ var ModelComment = React.createClass({
 	
 });
 
+var modelComment = React.createElement(ModelComment,{type:"add"});
+common.addCommon("modelComment",modelComment);
 
-ReactDOM.render(<ModelComment type="add"/>,$("#modalCon").get(0));
+//ReactDOM.render(<ModelComment type="add"/>,$("#modalCon").get(0));
