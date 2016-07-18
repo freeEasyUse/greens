@@ -115,12 +115,12 @@ var GoodItemShow = React.createClass({
 		return (
 			<div className="grid1_of_4">
 				<div className="content_box">
-					<a href="details.html">
-						<img src={this.props.item.imgSrc} className="img-responsive" alt=""/>
-					</a>
-					<h4><a href="details.html">{this.props.item.goodName}</a></h4>
-					<p>{this.props.item.desc}</p>
 					<div className="grid_1 simpleCart_shelfItem">
+						<a href="details.html">
+							<img src={this.props.item.imgSrc} className="item_thumb img-responsive" alt=""/>
+						</a>
+						<h4><a href="details.html" className="item_name">{this.props.item.goodName}</a></h4>
+						<p>{this.props.item.desc}</p>
 						<div className="item_add"><span className="item_price"><h6>ONLY $109.00</h6></span></div>
 						<div className="item_add"><span className="item_price"><a href="#">add to cart</a></span></div>
 					</div>
@@ -150,7 +150,7 @@ var ItemGroup = React.createClass({
 				allItems.push(<div className="grids_of_4">{showGroups}</div>)
 			}
 		}
-		allItems.push(<div class="clearfix"></div>);
+		allItems.push(<div className="clearfix"></div>);
 		return (
 				<div>
 					{allItems}

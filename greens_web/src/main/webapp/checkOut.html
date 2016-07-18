@@ -37,6 +37,16 @@
 <script src="res/simpleCart.min.js"></script>
 <script type="text/javascript">
 	simpleCart.currency({symbol: "￥"});
+	simpleCart({
+		cartStyle: "div",
+		cartColumns: [{ attr: "name" , label: "Name" } ,
+	                  { attr: "price" , label: "Price", view: 'currency' } ,
+	                  { view: "decrement" , label: false , text: "-" } ,
+	                  { attr: "quantity" , label: "Qty" } ,
+	                  { view: "increment" , label: false , text: "+" } ,
+	                  { attr: "total" , label: "SubTotal", view: 'currency' } ,
+	                  { view: "remove" , text: "Remove" , label: false }
+	                  ]});
 </script>
 </head>
 <body>
@@ -138,6 +148,7 @@
 					</div>
 					<!-- 商品内容 -->
 					<div id="goodGroup"></div>
+					
 					<div class="clearfix"></div>
 					<!-- 分页组件 -->
 					<div id="pageCommon"></div>
@@ -150,6 +161,7 @@
 	<div id="footer"></div>
 	<div id="modalCon"></div>
 	<!-- 加载头部菜单组件 -->
+	<script type="text/babel" src="model_js/showCartCommon.js"></script>
 	<script type="text/babel" src="model_js/react_boy.js"></script>
 	<script type="text/babel" src="model_js/footCommon.js"></script>
 	<script type="text/babel" src="model_js/modalComment.js"></script>
@@ -157,6 +169,7 @@
 		ReactDOM.render(common.getCommon("megaMenu"),$("#menu").get(0));
 		ReactDOM.render(common.getCommon("footComment"),$("#footer").get(0));
 		ReactDOM.render(common.getCommon("modelComment"),$("#modalCon").get(0));
+		ReactDOM.render(common.getCommon("cart"),$("#goodGroup").get(0));
 	</script>
 	
 </body>
