@@ -3594,4 +3594,7 @@ a.cpns {
   margin:0;
 }
 }
+input[type="number"]{
+	width:40px;
+}
 

@@ -38,15 +38,8 @@
 <script type="text/javascript">
 	simpleCart.currency({symbol: "￥"});
 	simpleCart({
-		cartStyle: "div",
-		cartColumns: [{ attr: "name" , label: "Name" } ,
-	                  { attr: "price" , label: "Price", view: 'currency' } ,
-	                  { view: "decrement" , label: false , text: "-" } ,
-	                  { attr: "quantity" , label: "Qty" } ,
-	                  { view: "increment" , label: false , text: "+" } ,
-	                  { attr: "total" , label: "SubTotal", view: 'currency' } ,
-	                  { view: "remove" , text: "Remove" , label: false }
-	                  ]});
+		cartStyle: "div"
+	});
 </script>
 </head>
 <body>
@@ -148,10 +141,8 @@
 					</div>
 					<!-- 商品内容 -->
 					<div id="goodGroup"></div>
-					
 					<div class="clearfix"></div>
-					<!-- 分页组件 -->
-					<div id="pageCommon"></div>
+
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -171,6 +162,6 @@
 		ReactDOM.render(common.getCommon("modelComment"),$("#modalCon").get(0));
 		ReactDOM.render(common.getCommon("cart"),$("#goodGroup").get(0));
 	</script>
-	
+	<!--  -->
 </body>
 </html>
